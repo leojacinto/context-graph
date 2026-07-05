@@ -1,0 +1,24 @@
+# Environment variables
+.env
+
+# ServiceNow specific
+.env.now
+.env.*.now
+
+# Generated keys
+keys/
+*.pem
+
+# Unused / deprecated
+unused/
+
+# Generated build artifacts
+node_modules/
+dist/
+target/
+.now/
+
+# Local test files
+*.log
+*.png
+*.zip

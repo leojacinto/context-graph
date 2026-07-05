@@ -1,0 +1,8 @@
+{
+  "scope": "x_snc_forecast_v_0",
+  "scopeId": "a4fd2da13bf8be5062f31831a3e45ac9",
+  "description": "Forecast Variance Knowledge Graph UI Page",
+  "fluentDir": "src/fluent",
+  "clientDir": "src/client",
+  "generatedDir": "generated"
+}

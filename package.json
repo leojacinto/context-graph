@@ -1,0 +1,24 @@
+{
+  "name": "forecast-variance-kg-explorer",
+  "version": "1.0.0",
+  "description": "Forecast Variance Knowledge Graph UI Page",
+  "private": true,
+  "scripts": {
+    "build": "npx @servicenow/sdk build",
+    "deploy": "npx @servicenow/sdk deploy",
+    "dependencies": "npx @servicenow/sdk dependencies"
+  },
+  "dependencies": {
+    "@servicenow/react-components": "latest",
+    "@servicenow/sdk": "^4.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "dotenv": "^17.4.2",
+    "playwright": "^1.61.1",
+    "typescript": "^5.0.0"
+  }
+}

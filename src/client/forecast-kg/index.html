@@ -1,0 +1,76 @@
+<html lang="en">
+  <head>
+    <title>Forecast Knowledge Graph</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      html, body, #root {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+    </style>
+    <script>
+      //<![CDATA[
+      // Array.from polyfill for older browsers
+      (function() {
+        var originalArrayFrom = Array.from;
+        var specArrayFrom = function(arrayLike, mapFn, thisArg) {
+          var C = this;
+          if (typeof C !== "function" || C === Window || C === Object) {
+            C = Array;
+          }
+          var mapping = typeof mapFn === "function";
+          var iterFn = arrayLike[Symbol.iterator];
+          if (typeof iterFn === "function") {
+            var result = [];
+            var i = 0;
+            var iterator = iterFn.call(arrayLike);
+            var step;
+            while (!(step = iterator.next()).done) {
+              result[i] = mapping ? mapFn.call(thisArg, step.value, i) : step.value;
+              i++;
+            }
+            result.length = i;
+            return result;
+          }
+          var items = Object(arrayLike);
+          var len = Math.min(Math.max(Number(items.length) || 0, 0), Number.MAX_SAFE_INTEGER);
+          var result = new C(len);
+          for (var k = 0; k < len; k++) {
+            result[k] = mapping ? mapFn.call(thisArg, items[k], k) : items[k];
+          }
+          result.length = len;
+          return result;
+        };
+        Array.from = function(arrayLike, mapFn, thisArg) {
+          if (arrayLike != null && typeof arrayLike[Symbol.iterator] === "function") {
+            try {
+              return specArrayFrom.call(this, arrayLike, mapFn, thisArg);
+            } catch (e) {
+              console.error("Array.from failed with error:", e);
+              return originalArrayFrom.call(this, arrayLike, mapFn, thisArg);
+            }
+          }
+          return originalArrayFrom.call(this, arrayLike, mapFn, thisArg);
+        };
+      })();
+      if (window.Element && Element.Methods) {
+        Element.Methods.remove = function(element) {
+          element = $(element);
+          if (element.parentNode) {
+            element.parentNode.removeChild(element);
+          }
+          return element;
+        };
+        Element.addMethods();
+      }
+      //]]>
+    </script>
+    <script src="main.tsx" type="module"></script>
+  </head>
+  <body>
+    <div id="forecast-kg-root"></div>
+  </body>
+</html>
